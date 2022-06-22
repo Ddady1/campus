@@ -3,25 +3,34 @@ def bucket_list(gro_list):
           '5. Delete item from list. \n 6. Add item to list. \n 7. Print illigal item. \n 8. Remove duplicates. \n 9. Exit')
 
 
-    x = int(input('Please NETER a number: '))
+    x = int(input('Please Select a number: '))
     while x != 0:
         if x == 1:
             print(gro_list)
             bucket_list(gro_list)
-        '''elif x == 2:
-            print(len(new_list))
-            bucket_list(new_list)
+        elif x == 2:
+            print(len(gro_list))
+            bucket_list(gro_list)
         elif x == 3:
-            item = input('Please enter item: ')
-            if item in new_list:
+            item = input('Please enter an item: ')
+            if item in gro_list:
                 print(True)
             else:
                 print(False)
-            bucket_list(new_list)
+            bucket_list(gro_list)
         elif x == 4:
-            item = input('Please enter item: ')
-            print(f'You have {new_list.count(item)} of {item}')
-            bucket_list(new_list)'''
+            item = input('Please enter an item: ')
+            print(f'You have {gro_list.count(item)} of {item}')
+            bucket_list(gro_list)
+        elif x == 5:
+            item = input('Please enter an item: ')
+            num = gro_list.index(item)
+            gro_list.pop(num)
+            bucket_list(gro_list)
+        elif x == 6:
+            item = input('Please enter an item: ')
+            gro_list.append(item)
+            bucket_list(gro_list)
 
 
 
