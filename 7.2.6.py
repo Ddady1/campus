@@ -20,7 +20,8 @@ def bucket_list(gro_list):
             bucket_list(gro_list)
         elif x == 4:
             item = input('Please enter an item: ')
-            print(f'You have {gro_list.count(item)} of {item}')
+            print(gro_list.count(item))
+            #print(f'You have {gro_list.count(item)} of {item}')
             bucket_list(gro_list)
         elif x == 5:
             item = input('Please enter an item: ')
