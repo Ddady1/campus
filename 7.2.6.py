@@ -31,8 +31,20 @@ def bucket_list(gro_list):
             item = input('Please enter an item: ')
             gro_list.append(item)
             bucket_list(gro_list)
-
-
+        elif x == 7:
+            new_list = []
+            for item in gro_list:
+                if len(item) < 3 or not item.isalpha():
+                    new_list.append(item)
+                    print(new_list)
+            bucket_list(gro_list)
+        elif x == 8:
+            for item in gro_list:
+                if gro_list.count(item) > 1:
+                    gro_list.remove(item)
+            bucket_list(gro_list)
+        elif x == 9:
+            exit()
 
 grocery_list = 'Milk,Cottage,Tomatoes'
 bucket_list(list(grocery_list.split(',')))
