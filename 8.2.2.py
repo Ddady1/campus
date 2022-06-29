@@ -1,24 +1,16 @@
+def func(s):
+
+    return float(s[1])
+
 def sort_prices(list_of_tuples):
-    sorted_lst = []
-    flag = len(list_of_tuples)
-    #sorted_lst = list_of_tuples.sort()
-    for n in list_of_tuples:
-        num = float(n[1])
-        if n[0] == 0:
 
-            sorted_lst.append(n)
-        else:
-            if num > sorted_lst[1]:
-                sorted_lst.append(n)
-            #else:
+    x = (sorted(list_of_tuples, key=func))
+    x.reverse()
+    return x
 
 
 
-        print(type(num))
-        print(num)
-    #print(sorted_lst)
 
 
-
-products = [('milk', '5.5'), ('candy', '2.5'), ('bread', '9.0')]
-sort_prices(products)
+products = [('milk', '5.5'), ('bread', '5.51'), ('candy', '2.50'), ('bread', '9.0')]
+print(sort_prices(products))
