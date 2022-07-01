@@ -12,4 +12,9 @@ if x == 4:
 if x == 5:
     famous['hobbies'].append('Cooking')
 if x == 6:
-
+    date = famous['birth_date'].split('.')
+    print(tuple(date))
+if x == 7:
+    today = 2022 - 1970
+    famous['age'] = today
+    print(famous['age'])
