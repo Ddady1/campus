@@ -4,15 +4,14 @@ def inverse_dict(my_dict):
     lst = []
     l_lst = []
     for k, v in my_dict.items():
-        lst = [k, v]
+        lst = [v, k]
         l_lst.append(lst)
 
-    for n in l_lst:
-        for f in n:
-            if n[1] in my_dict:
-                n.append(n[0])
-            new_dict.update(n)
-    print(new_dict)
+    temp = l_lst[0]
+
+    for n in range(1, len(l_lst)):
+        if l_lst[n][0] == temp[0]:
+            temp.append(l_lst[n][1])
 
     print(l_lst)
     return new_dict
