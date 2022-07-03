@@ -8,15 +8,18 @@ def inverse_dict(my_dict):
         l_lst.append(lst)
 
     temp = l_lst[0]
-
+    print(l_lst)
     for n in range(1, len(l_lst) -1):
         if l_lst[n][0] == temp[0]:
             temp.append(l_lst[n][1])
             l_lst.remove(l_lst[n])
 
+
     for f in l_lst:
-        for t in range(len(f) - 1):
-            new_dict.update({f[0]: f[t + 1]}) #f[0]] = f[t + 1]
+        y = f[0]
+        f.remove(y)
+        new_dict[y] = f
+
 
 
     print(l_lst)
@@ -25,5 +28,5 @@ def inverse_dict(my_dict):
 
 
 
-course_dict = {'I': 3, 'love': 3, 'self.py!': 2}
+course_dict = {'I': 3, 'love': 2, 'self.py!': 2}
 print(inverse_dict(course_dict))
