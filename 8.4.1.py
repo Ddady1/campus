@@ -39,5 +39,5 @@ def print_hangman(num_of_tries):
 
 
 
-num_of_tries = 4
+num_of_tries = 6
 print_hangman(num_of_tries)
