@@ -22,3 +22,14 @@ with open(f_path, 'r') as f:
         for line in lines:
             lst = line.replace('\n', '')
             print(lst[::-1])
+
+    elif f_action == 'last':
+        n = input('Please enter numer of lines: ')
+        lines = f.readlines()
+        num = len(lines) - int(n)
+        for tu in range(num, len(lines)):
+            lst = lines[tu].replace('\n', '')
+            print(lst)
+            tu += 1
+
+        #print(len(lines))
