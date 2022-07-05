@@ -13,7 +13,7 @@ def who_is_missing(file_name):
     n = int(lst[0])
     if len(lst) == 1:
         n -= 1
-        file_path = ("C:\campus\\found.txt")
+        file_path = (r"C:\campus\found.txt")
         fw = open(file_path, 'w')
         fw.write(str(n))
         return n
@@ -24,7 +24,7 @@ def who_is_missing(file_name):
                 num += 1
             else:
                 number = int(lst[num]) - 1
-                file_path = ("C:\campus\\found.txt")
+                file_path = (r"C:\campus\found.txt")
                 fw = open(file_path, 'w')
                 fw.write(str(number))
                 fw.close()
