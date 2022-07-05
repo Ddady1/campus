@@ -7,7 +7,8 @@ with open(f_path, 'r') as f:
     if f_action == 'sort':
         content = f.read()
         content = content.replace('\n', ' ')
-        con_lst = content.split(' ')
+        content = content.replace('"', '')
+        con_lst = content.split()
         new_lst = []
         for n in con_lst:
             if n in new_lst:
@@ -32,4 +33,3 @@ with open(f_path, 'r') as f:
             print(lst)
             tu += 1
 
-        #print(len(lines))
