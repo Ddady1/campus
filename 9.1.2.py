@@ -21,6 +21,4 @@ with open(f_path, 'r') as f:
         lines = f.readlines()
         for line in lines:
             lst = line.replace('\n', '')
-            lst = lst.split()
-            lst.reverse()
             print(lst[::-1])
