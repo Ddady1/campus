@@ -19,13 +19,11 @@ def my_mp3_playlist(file_path):
         b = len(songs)
 
         c = 0
-        for n in range(len(items) - 1):
-            temp = items.count(song[2])
-            if temp > c:
-                c = temp
-            n += 1
+        for n in songs:
+            for nf in n:
 
-    print(a, b, c)
+    tup = (str(a), b, c)
+    return tup
 
 
 
