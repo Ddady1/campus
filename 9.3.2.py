@@ -4,6 +4,7 @@ def my_mp4_playlist(file_path, new_song):
     with open(file_path, 'r') as f_read:
         data = f_read.readlines()
         print(data)
+        f_read.close()
 
         num = len(data)
         if num < 3:
