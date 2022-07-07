@@ -1,4 +1,8 @@
 def my_mp4_playlist(file_path, new_song):
+    '''Get's file with lines. Each line contains sond name, singer and song lenght
+    info in each line divided with ';'
+    example: Tudo Bom;Static and Ben El Tavori;5:13;
+    if there are less than 3 lines only add song name at the thord line'''
 
 
     with open(file_path, 'r') as f_read:
@@ -11,8 +15,8 @@ def my_mp4_playlist(file_path, new_song):
             data.append((3 - num) * '\n')
             data.append(new_song)
         else:
+            line2 = data[2]
             f_data = data[2].split(';')
-            line2 = f_data
             f_data.pop(0)
             f_data.insert(0, new_song)
             f_data = ';'.join(f_data)
