@@ -11,12 +11,20 @@ def my_mp4_playlist(file_path, new_song):
             data.append(new_song)
         else:
             f_data = data[2].split(';')
+            line2 = f_data
             f_data.pop(0)
             f_data.insert(0, new_song)
             f_data = ';'.join(f_data)
-            data.append(f_data)
+            data.remove(line2)
+            data.insert(2, f_data)
 
-''' Need to convert data to string in order to write to file
+    with open(file_path, 'w') as f_write:
+        for line in data:
+            f_write.write(line)
+
+
+
+        ''' Need to convert data to string in order to write to file
 or run loop through data and write each line to file'''
 
 
