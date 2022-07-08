@@ -12,7 +12,8 @@ def choose_word(file_path, index):
                 solid.append(n)
         solid_num = len(solid)
         if index / 2 >= len(items):
-            index = (index / 2 - len(items)) + 0.5
+            index = round(index / 2 - len(items) + 0.5)
+            print(index)
             word = items[int(index) - 1]
         elif index > len(items):
             index = index - len(items)
@@ -27,5 +28,5 @@ def choose_word(file_path, index):
 
 
 
-print(choose_word(r"c:\campus\words.txt", 9))
+print(choose_word(r"c:\campus\words.txt", 5))
 #choose_word(r"c:\campus\words.txt", 15)
