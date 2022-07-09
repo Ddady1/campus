@@ -33,6 +33,7 @@ def print_hangman(num_of_tries):
 
 
 
+
     print(HANGMAN_PHOTOS.get(num_of_tries))
 
 

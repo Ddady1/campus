@@ -48,8 +48,12 @@ def hangma_main_pic():
 
 
 def main():
-    print(hangma_main_pic(), 6)
-
+    MAX_TRIES = 6
+    print(hangma_main_pic(), MAX_TRIES)
+    print(hang_photos(3))
+    f_path = input('Please enter file path: ')
+    word_num = input('Please enter a num: ')
+    secret_word = (choose_word(f_path, word_num))
 
 
 
