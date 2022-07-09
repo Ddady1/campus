@@ -12,11 +12,11 @@ def try_update_letter_guessed(letter_guessed, old_letters_guessed):
     old_letters_guessed.sort()
     if letter_guessed in old_letters_guessed:
         print('X')
-        print(' -> '.join(old_letters_guessed)
+        print(' -> '.join(old_letters_guessed))
         return False
     elif len(letter_guessed) >= 2 or not letter_guessed.isalpha():
         print('X')
-        print(' -> '.join(old_letters_guessed)
+        print(' -> '.join(old_letters_guessed))
         return False
     else:
         old_letters_guessed.append(letter_guessed)
