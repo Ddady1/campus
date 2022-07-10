@@ -39,7 +39,32 @@ def choose_word(file_path, index):
         items = content.split(' ')
         return items[int(index) - 1]
 
-def try_update_letter_guessed(letter_guessed, old_letters_guessed):
+def check_win(secret_word, old_letters_guessed):
+
+    answer = True
+    for n in secret_word:
+
+        if n in old_letters_guessed:
+            answer = True
+        else:
+            answer = False
+            return answer
+    return answer
+
+def show_hidden_word(secret_word, old_letters_guessed):
+
+    new_lst = list(secret_word)
+    l_str = ['_'] * len(secret_word)
+    for n in old_letters_guessed:
+        if n in new_lst:
+            for i in range(secret_word.count(n)):
+                pos = new_lst.index(n)
+                l_str[pos] = n
+                new_lst[pos] = '_'
+    l_str = ' '.join(l_str)
+    return l_str
+
+def try_update_letter_guessed(letter_guessed, old_letters_guessed, secret_word):
     ''' Function check if input is valid and tries to update old_letters_guessed.
     :param letter_guessed: guessed letter value
     :param old_letters_guessed: old letters guessed
@@ -52,16 +77,21 @@ def try_update_letter_guessed(letter_guessed, old_letters_guessed):
     letter_guessed = letter_guessed.lower()
     old_letters_guessed.sort()
     if letter_guessed in old_letters_guessed:
-        print('X')
-        print(' -> '.join(old_letters_guessed))
-        return False
+        #print('X')
+        #print(' -> '.join(old_letters_guessed))
+        return ('X', ' -> '.join((old_letters_guessed)))
+        #return False
     elif len(letter_guessed) >= 2 or not letter_guessed.isalpha():
-        print('X')
-        print(' -> '.join(old_letters_guessed))
-        return False
+        #print('X')
+        #print(' -> '.join(old_letters_guessed))
+        #return False
+        return ('X', ' -> '.join((old_letters_guessed)))
     else:
         old_letters_guessed.append(letter_guessed)
-        return True
+        result = check_win(secret_word, old_letters_guessed)
+        if result == True:
+            return
+        return old_letters_guessed
 
 
 def hangma_main_pic():
@@ -93,7 +123,7 @@ def main():
     num_of_tries = 0
     while num_of_tries <= MAX_TRIES:
         letter_guessed = input('Please guess a letter: ')
-        try_update_letter_guessed(letter_guessed, old_letters_guessed)
+        print(try_update_letter_guessed(letter_guessed, old_letters_guessed, secret_word))
 
 
 
