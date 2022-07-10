@@ -88,10 +88,14 @@ def try_update_letter_guessed(letter_guessed, old_letters_guessed, secret_word):
         return ('X', ' -> '.join((old_letters_guessed)))
     else:
         old_letters_guessed.append(letter_guessed)
+        if letter_guessed not in secret_word:
+            result = 'not_in'
+            return result
         result = check_win(secret_word, old_letters_guessed)
         if result == True:
-            return
-        return old_letters_guessed
+            return True
+        else:
+            return True, old_letters_guessed
 
 
 def hangma_main_pic():
@@ -123,7 +127,11 @@ def main():
     num_of_tries = 0
     while num_of_tries <= MAX_TRIES:
         letter_guessed = input('Please guess a letter: ')
-        print(try_update_letter_guessed(letter_guessed, old_letters_guessed, secret_word))
+        result = try_update_letter_guessed(letter_guessed, old_letters_guessed, secret_word)
+        if result =
+
+
+        num_of_tries += 1
 
 
 
