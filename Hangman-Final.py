@@ -32,6 +32,13 @@ def hang_photos(photo_num):
     |"""}
     return HANGMAN_PHOTOS[photo_num]
 
+def choose_word(file_path, index):
+
+    with open(file_path, 'r') as word_read:
+        content = word_read.read()
+        items = content.split(' ')
+        return items[int(index) - 1]
+
 def hangma_main_pic():
     pic = '''Welcome to the game Hangman
 
@@ -53,7 +60,8 @@ def main():
     print(hang_photos(3))
     f_path = input('Please enter file path: ')
     word_num = input('Please enter a num: ')
-    secret_word = (choose_word(f_path, word_num))
+    print(secret_word=(choose_word(f_path, word_num)))
+
 
 
 
