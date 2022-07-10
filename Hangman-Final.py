@@ -93,7 +93,7 @@ def main():
     num_of_tries = 0
     while num_of_tries <= MAX_TRIES:
         letter_guessed = input('Please guess a letter: ')
-        try_update_letter_guessed
+        try_update_letter_guessed(letter_guessed, old_letters_guessed)
 
 
 
