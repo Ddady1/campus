@@ -80,20 +80,20 @@ def try_update_letter_guessed(letter_guessed, old_letters_guessed, secret_word):
         print('X')
         print(' -> '.join(old_letters_guessed))
         #return ('X', ' -> '.join((old_letters_guessed)))
-        return False
+        return 'no_good'
     elif len(letter_guessed) >= 2 or not letter_guessed.isalpha():
         print('X')
         print(' -> '.join(old_letters_guessed))
-        return False
+        return 'no_good'
         #return ('X', ' -> '.join((old_letters_guessed)))
 
     elif letter_guessed in secret_word:
         old_letters_guessed.append(letter_guessed)
         result = check_win(secret_word, old_letters_guessed)
         if result is True:
-            return True
+            return 'Win'
         else:
-            return False
+            return 'False'
     else:
         old_letters_guessed.append(letter_guessed)
 
@@ -130,10 +130,17 @@ def main():
     while num_of_tries <= MAX_TRIES:
         letter_guessed = input('Please guess a letter: ')
         result = try_update_letter_guessed(letter_guessed, old_letters_guessed, secret_word)
-        #if result =
+        if result == 'Win':
+            print(secret_word)
+            print('Win')
+        elif result == 'no_good':
+            continue
+        elif result == 'False':
+            num_of_tries += 1
+            print(hang_photos(num_of_tries + 1))
 
 
-        num_of_tries += 1
+
 
 
 
