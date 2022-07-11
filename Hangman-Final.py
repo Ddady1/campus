@@ -77,25 +77,26 @@ def try_update_letter_guessed(letter_guessed, old_letters_guessed, secret_word):
     letter_guessed = letter_guessed.lower()
     old_letters_guessed.sort()
     if letter_guessed in old_letters_guessed:
-        #print('X')
-        #print(' -> '.join(old_letters_guessed))
-        return ('X', ' -> '.join((old_letters_guessed)))
-        #return False
+        print('X')
+        print(' -> '.join(old_letters_guessed))
+        #return ('X', ' -> '.join((old_letters_guessed)))
+        return False
     elif len(letter_guessed) >= 2 or not letter_guessed.isalpha():
-        #print('X')
-        #print(' -> '.join(old_letters_guessed))
-        #return False
-        return ('X', ' -> '.join((old_letters_guessed)))
-    else:
+        print('X')
+        print(' -> '.join(old_letters_guessed))
+        return False
+        #return ('X', ' -> '.join((old_letters_guessed)))
+
+    elif letter_guessed in secret_word:
         old_letters_guessed.append(letter_guessed)
-        if letter_guessed not in secret_word:
-            result = 'not_in'
-            return result
         result = check_win(secret_word, old_letters_guessed)
-        if result == True:
+        if result is True:
             return True
         else:
-            return True, old_letters_guessed
+            return False
+    else:
+        old_letters_guessed.append(letter_guessed)
+
 
 
 def hangma_main_pic():
@@ -121,6 +122,7 @@ def main():
     word_num = input('Please enter a num: ')
     secret_word = choose_word(f_path, word_num)
     #print(secret_word)
+    #print(r'\n\n Let's Start!\n')
     print(hang_photos(1))
     print('_' * len(secret_word))
     old_letters_guessed = []
@@ -128,7 +130,7 @@ def main():
     while num_of_tries <= MAX_TRIES:
         letter_guessed = input('Please guess a letter: ')
         result = try_update_letter_guessed(letter_guessed, old_letters_guessed, secret_word)
-        if result =
+        #if result =
 
 
         num_of_tries += 1
