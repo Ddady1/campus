@@ -9,7 +9,8 @@ def hang_photos(photo_num):
     |       0
     |       |
     |
-    |""", 1: '''    x-------x''', 2: """    x-------x
+    |""", 1: '''    x-------x
+    ''', 2: """    x-------x
     |
     |
     |
@@ -46,10 +47,11 @@ def check_win(secret_word, old_letters_guessed):
 
         if n in old_letters_guessed:
             answer = True
+            return answer
         else:
             answer = False
             return answer
-    return answer
+    #return answer
 
 def show_hidden_word(secret_word, old_letters_guessed):
 
@@ -90,14 +92,13 @@ def try_update_letter_guessed(letter_guessed, old_letters_guessed, secret_word):
     elif letter_guessed in secret_word:
         old_letters_guessed.append(letter_guessed)
         result = check_win(secret_word, old_letters_guessed)
-        if result is True:
+        if result == True:
             return 'Win'
         else:
             return 'False'
     else:
         old_letters_guessed.append(letter_guessed)
-
-
+        return 'False'
 
 def hangma_main_pic():
     pic = '''Welcome to the game Hangman
@@ -127,17 +128,21 @@ def main():
     print('_' * len(secret_word))
     old_letters_guessed = []
     num_of_tries = 0
-    while num_of_tries <= MAX_TRIES:
+    while num_of_tries < MAX_TRIES:
         letter_guessed = input('Please guess a letter: ')
         result = try_update_letter_guessed(letter_guessed, old_letters_guessed, secret_word)
         if result == 'Win':
             print(secret_word)
             print('Win')
+            exit()
         elif result == 'no_good':
             continue
         elif result == 'False':
             num_of_tries += 1
             print(hang_photos(num_of_tries + 1))
+    print('Lose')
+    exit()
+
 
 
 
