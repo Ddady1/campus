@@ -13,5 +13,5 @@ def check_win(secret_word, old_letters_guessed):
 
 
 secret_word = "plant"
-old_letters_guessed = ['m', 'p', 'j', 'i', 's', 'k', 'n', 'f', 'e', 'r', 'd', 'y']
+old_letters_guessed = ['p', 'm', 'p', 'j', 'i', 's', 'k', 'n', 'f', 'e', 'r', 'd', 'y']
 print(check_win(secret_word, old_letters_guessed))

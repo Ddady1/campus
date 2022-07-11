@@ -47,11 +47,11 @@ def check_win(secret_word, old_letters_guessed):
 
         if n in old_letters_guessed:
             answer = True
-            return answer
+
         else:
             answer = False
             return answer
-    #return answer
+    return answer
 
 def show_hidden_word(secret_word, old_letters_guessed):
 
@@ -81,6 +81,7 @@ def try_update_letter_guessed(letter_guessed, old_letters_guessed, secret_word):
     if letter_guessed in old_letters_guessed:
         print('X')
         print(' -> '.join(old_letters_guessed))
+
         #return ('X', ' -> '.join((old_letters_guessed)))
         return 'no_good'
     elif len(letter_guessed) >= 2 or not letter_guessed.isalpha():
@@ -94,8 +95,10 @@ def try_update_letter_guessed(letter_guessed, old_letters_guessed, secret_word):
         result = check_win(secret_word, old_letters_guessed)
         if result == True:
             return 'Win'
+
+
         else:
-            return 'False'
+            return 'no_end'
     else:
         old_letters_guessed.append(letter_guessed)
         return 'False'
@@ -135,10 +138,14 @@ def main():
             print(secret_word)
             print('Win')
             exit()
-        elif result == 'no_good':
+        elif result == 'no_good' :
+            continue
+        elif result == 'no_end':
+            print(show_hidden_word(secret_word, old_letters_guessed))
             continue
         elif result == 'False':
             num_of_tries += 1
+            print(')-:')
             print(hang_photos(num_of_tries + 1))
     print('Lose')
     exit()
