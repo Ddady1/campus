@@ -2,7 +2,7 @@ def hang_photos(photo_num):
 
     '''Function that return a string ad pic according to a number
     :param photo_num: number of the photo
-    :type photo_num: enumerate
+    :type photo_num: int
     :return: string
     :rtype: str'''
 
@@ -46,7 +46,7 @@ def choose_word(file_path, index):
     :param file_path: file path
     :param index: the index value of the word
     :type file_path: str
-    :type index: enumerate
+    :type index: int
     :return: the word chosen
     :rtype: str'''
 
@@ -97,6 +97,19 @@ def show_hidden_word(secret_word, old_letters_guessed):
     l_str = ' '.join(l_str)
     return l_str
 
+def is_valid_input(letter_guessed):
+
+    '''Function check if letter is under approved conditions
+    :param letter_guessed: value of guessed letter
+    :type letter_guessed: str
+    :return: Treu or False
+    :rtype: bool'''
+
+    if len(letter_guessed) >= 2 or not letter_guessed.isalpha():
+        return False
+    else:
+        return True
+
 def try_update_letter_guessed(letter_guessed, old_letters_guessed, secret_word):
 
     ''' Function check if input is valid and tries to update old_letters_guessed. It also prints status and send another function to check
@@ -117,10 +130,6 @@ def try_update_letter_guessed(letter_guessed, old_letters_guessed, secret_word):
         print('X')
         print(' -> '.join(old_letters_guessed))
 
-        return 'no_good'
-    elif len(letter_guessed) >= 2 or not letter_guessed.isalpha():
-        print('X')
-        print(' -> '.join(old_letters_guessed))
         return 'no_good'
 
     elif letter_guessed in secret_word:
@@ -163,13 +172,21 @@ def main():
     print(hangma_main_pic(), '  You have', MAX_TRIES, 'tries')
     f_path = input('Please enter file path: ')
     word_num = input('Please enter a num: ')
-    secret_word = choose_word(f_path, word_num)
+    secret_word = choose_word(f_path, int(word_num))
     print("""\nLet's Start!\n\n""", hang_photos(1))
     print('_' * len(secret_word))
     old_letters_guessed = []
     num_of_tries = 0
     while num_of_tries < MAX_TRIES:
-        letter_guessed = input('Please guess a letter: ')
+        if_good = False
+        while if_good != True:
+            letter_guessed = input('Please guess a letter: ')
+            if_good = is_valid_input(letter_guessed)
+            if if_good is True:
+                continue
+            else:
+                print('X')
+                print(' -> '.join(old_letters_guessed))
         result = try_update_letter_guessed(letter_guessed, old_letters_guessed, secret_word)
         if result == 'Win':
             print(secret_word)
