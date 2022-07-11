@@ -160,7 +160,7 @@ def hangma_main_pic():
 
 def main():
     MAX_TRIES = 6
-    print(hangma_main_pic(), 'You have ', MAX_TRIES, 'tries')
+    print(hangma_main_pic(), '  You have', MAX_TRIES, 'tries')
     f_path = input('Please enter file path: ')
     word_num = input('Please enter a num: ')
     secret_word = choose_word(f_path, word_num)
@@ -173,7 +173,7 @@ def main():
         result = try_update_letter_guessed(letter_guessed, old_letters_guessed, secret_word)
         if result == 'Win':
             print(secret_word)
-            print('Win')
+            print('WIN')
             exit()
         elif result == 'no_good' :
             continue
@@ -182,9 +182,10 @@ def main():
             continue
         elif result == 'False':
             num_of_tries += 1
-            print(')-:')
+            print(')-:  Wrong, no such letter!')
+            print(f'You have left {6-num_of_tries} tries')
             print(hang_photos(num_of_tries + 1))
-    print('Lose')
+    print('LOSE')
     exit()
 
 
