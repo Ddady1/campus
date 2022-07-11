@@ -1,4 +1,11 @@
 def hang_photos(photo_num):
+
+    '''Function that return a string ad pic according to a number
+    :param photo_num: number of the photo
+    :type photo_num: enumerate
+    :return: string
+    :rtype: str'''
+
     HANGMAN_PHOTOS = {6: '''    x-------x
     |       |
     |       0
@@ -37,7 +44,7 @@ def choose_word(file_path, index):
 
     '''function the gets a file and return a word from its content
     :param file_path: file path
-    :param index: the index valuse of the word
+    :param index: the index value of the word
     :type file_path: str
     :type index: enumerate
     :return: the word chosen
@@ -130,6 +137,13 @@ def try_update_letter_guessed(letter_guessed, old_letters_guessed, secret_word):
         return 'False'
 
 def hangma_main_pic():
+
+    ''' Function that prints the welcome screen
+    :param nothing:Null
+    :type nothing:Null
+    :return: Welcome screen
+    :rtype: str'''
+
     pic = '''Welcome to the game Hangman
 
      _    _
@@ -146,7 +160,7 @@ def hangma_main_pic():
 
 def main():
     MAX_TRIES = 6
-    print(hangma_main_pic(), MAX_TRIES)
+    print(hangma_main_pic(), 'You have ', MAX_TRIES, 'tries')
     f_path = input('Please enter file path: ')
     word_num = input('Please enter a num: ')
     secret_word = choose_word(f_path, word_num)
