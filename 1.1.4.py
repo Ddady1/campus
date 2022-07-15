@@ -1,13 +1,12 @@
 import functools
 
-def sumall(mila):
-    return
+def sumall(mis1, mis2):
+
+    return int(mis1) + int(mis2)
 
 def sum_of_digits(number):
+
     return functools.reduce(sumall, str(number))
-
-
-
 
 
 
