@@ -9,3 +9,6 @@ if result:
     print("Correct password!")
 else:
     print("Wrong password.")
+
+
+    ''' Find what is the correct input in order to get Coorect password'''
