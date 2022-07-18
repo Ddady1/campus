@@ -4,3 +4,6 @@ def last_early(my_str):
         return True
     else:
         return False
+
+
+print(last_early('aaabbb aba'))
