@@ -1,7 +1,9 @@
 def is_prime(number):
 
-    result = [False if number % x == 0 else True for x in range(2, number)]
-    return result
+
+    return 0 not in [number % x for x in range(2, number//2+1)]
+    #return [False if number % x == 0 else True for x in range(2, number)]
+    #return result
 
 
 
@@ -12,5 +14,5 @@ def is_prime(number):
 
 
 
-print(is_prime(25))
-print(is_prime(24))
+print(is_prime(11))
+print(is_prime(21))
