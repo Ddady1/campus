@@ -6,4 +6,4 @@ def is_funny(string):
 
 
 
-print(is_funny("hahahahahaha"))
+print(is_funny("hahahwefwahahaha"))
