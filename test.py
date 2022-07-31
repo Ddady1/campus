@@ -1,4 +1,4 @@
-def combine_coins(coin, numbers):
+'''def combine_coins(coin, numbers):
     output = ""
     for num in numbers:
         output += coin + str(num) + ', '
@@ -6,4 +6,12 @@ def combine_coins(coin, numbers):
     return output[:-2]
 
 
-print(combine_coins('$', range(5)))
+print(combine_coins('$', range(5)))'''
+
+
+from datetime import date
+
+todate = date.today()
+
+d1 = todate.strftime('%d/%m/%Y')
+print(d1)
