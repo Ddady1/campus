@@ -9,9 +9,13 @@
 print(combine_coins('$', range(5)))'''
 
 
-from datetime import date
+'''from datetime import date
 
 todate = date.today()
 
 d1 = todate.strftime('%d/%m/%Y')
-print(d1)
+print(d1)'''
+
+
+t = (5, 6, 7)
+print('5555', t)
